@@ -1,6 +1,7 @@
-// import fs from'fs';
-import http from'http';
-
+import fs from "fs";
+import http from "http";
+import path from "path";
+import { add } from "./utils.js";
 // try{
 
 // fs.writeFileSync('example.txt', 'Hello, World!');
@@ -25,8 +26,25 @@ import http from'http';
 //     console.error('Error hua:', err.message);
 // }
 
-const server = http.createServer( (req, res ) => {
-    console.log(req);
-    res.end(' hello world hello')
-});
-server.listen(5000);
+//  create a file using fs
+// fs.writeFileSync("hello.txt", "hi");
+
+// read file using fs
+// let hi = fs.readFileSync("hello.txt", "utf-8");
+// console.log(hi);
+
+//  update file
+// fs.appendFileSync("hello.txt", "\n hello");
+// let he = fs.readFileSync("hello.txt", "utf-8");
+// console.log(he);
+
+// delete file
+// fs.unlinkSync('hello.txt');
+
+// feat: create "myDirectory2" folder and add file inside it
+// fs.mkdirSync('myDirectory2' , {recursive : true});
+// const file = path.join('myDirectory2', 'hiii.txt');
+// fs.writeFileSync(file , 'hi from inside folder!' , 'utf-8');
+// console.log('File ban gayi:' , file);
+
+    // console.log('add', add);
