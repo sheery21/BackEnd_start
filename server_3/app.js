@@ -17,6 +17,9 @@ app.get('/product' , ( req , res ) =>{
     console.log("request", req.url);
     res.send( product);
 });
+app.get('/createuser' , ( req , res ) =>{
+    
+});
 
 app.get('/product:id' , ( req , res ) =>{
     console.log("request single prod api", req.url);
