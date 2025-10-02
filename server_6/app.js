@@ -33,7 +33,7 @@ app.get("/getalluser", (req, res) => {
   res.send(parsedata);
 });
 app.post("/updateuser/:id", (req, res) => {
-  const params = req.params
+  const params = req.params 
   const getdata = fs.readFileSync('user.txt', 'utf-8')
   const parses = JSON.parse(getdata)
   const newArr = parses.map(user =>{
@@ -44,10 +44,10 @@ app.post("/updateuser/:id", (req, res) => {
     }else{
       return user
     }
-   fs.writeFileSync('user.txt', newArr)
   })
-console.log('newArr', newArr);
-
+  console.log('newArr', newArr);
+  
+  fs.writeFileSync("user.txt", JSON.stringify(newArr))
   res.send("User Updeted Successfully");
 });
 app.post("/deleteuser", (req, res) => {
