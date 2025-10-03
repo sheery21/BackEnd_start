@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  },
+  "name": "server_7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "div" : "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
