@@ -12,20 +12,48 @@ app.post("/creatUser", (req, res) => {
   const fileExist = fs.existsSync("user.txt");
   const body = { ...req.body, id: uuidv4() };
   if (fileExist) {
-     const usersData = JSON.parse(fs.readFileSync("user.txt", "utf-8"));
+    const usersData = JSON.parse(fs.readFileSync("user.txt", "utf-8"));
     usersData.push(body);
-    console.log("second user", usersData);
     fs.writeFileSync("user.txt", JSON.stringify(usersData));
-    response.json({
+    res.json({
       message: "user created!",
     });
   } else {
     const userArr = [];
     userArr.push(body);
-     
-    fs.writeFileSync("user.txt", JSON.stringify(body));
+
+    fs.writeFileSync("user.txt", JSON.stringify(userArr));
     res.json({ message: "user created!" });
   }
+});
+
+app.get("/getUser", (req, res) => {
+  let data = JSON.parse(fs.readFileSync("user.txt", "utf-8"));
+  res.json({ data });
+});
+
+app.put("/updateUser/:id", (req, res) => {
+  let userId = req.params.id;
+  let allUser = JSON.parse(fs.readFileSync("user.txt", "utf-8"));
+
+  const updateUsers = allUser.map((obj) => {
+    if (obj.id == userId) {
+      const updateObj = { ...obj, ...req.body };
+      return updateObj;
+    } else {
+      return obj;
+    }
+  });
+  fs.writeFileSync("user.txt", JSON.stringify(updateUsers));
+  res.json({
+    message: "user updated!",
+  });
+});
+
+app.delete("userDelete/:id", (req, res) => {
+  // let userId = req.params.id;
+  // console.log(userId, "userId");
+  res.send('hello')
 });
 
 app.listen(PORT, () =>
