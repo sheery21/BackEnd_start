@@ -33,7 +33,7 @@ app.post("/creatUser", (req, res) => {
 
 app.get("/getAllUser", (req, res) => {
   let date = JSON.parse(fs.readFileSync("user.txt", "utf-8"));
-  res.json( date );
+  res.json ( date );
 });
 
 app.put("/updateUser/:id", (req, res) => {
