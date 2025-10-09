@@ -50,10 +50,22 @@ app.put("/updateUser/:id", (req, res) => {
   });
 });
 
-app.delete("userDelete/:id", (req, res) => {
-  // let userId = req.params.id;
-  // console.log(userId, "userId");
-  res.send('hello')
+app.delete("/userDelete/:id", (req, res) => {
+  let userId = req.params.id;
+  let parseData = JSON.parse(fs.readFileSync('user.txt' , 'utf-8'))
+  console.log(parseData , 'usersData');
+  const indexNumber = parseData.findIndex( (user ) =>{
+    console.log(user.id , "user");
+
+    if(userId === user.id){
+      return user
+    }
+  })
+  parseData.splice(indexNumber , 1)
+  fs.writeFileSync('user.txt' , JSON.stringify(parseData))
+  res.json({
+     message: "user Deleted!",
+  })
 });
 
 app.listen(PORT, () =>
