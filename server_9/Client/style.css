@@ -1,0 +1,91 @@
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #6b46c1;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+p.lead {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 10px 0 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6e9ef;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 8px 20px rgba(107, 70, 193, 0.08);
+  border-color: rgba(107, 70, 193, 0.35);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
